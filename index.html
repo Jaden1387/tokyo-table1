@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tokyo Table | Gastronomie Japonaise</title>
+<title>Tokyo Table | Japanese Gourmet</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
@@ -14,7 +14,6 @@ body {
   color: #eee;
 }
 
-/* HEADER */
 header {
   text-align: center;
   padding: 60px 20px;
@@ -50,6 +49,15 @@ nav a {
   letter-spacing: 2px;
 }
 
+.lang-btn {
+  margin-top: 20px;
+  padding: 8px 20px;
+  background: none;
+  border: 1px solid #c9a24d;
+  color: #c9a24d;
+  cursor: pointer;
+}
+
 .order-btn {
   display: inline-block;
   margin-top: 30px;
@@ -58,7 +66,6 @@ nav a {
   color: #c9a24d;
   text-decoration: none;
   letter-spacing: 3px;
-  transition: 0.3s;
 }
 
 .order-btn:hover {
@@ -66,7 +73,6 @@ nav a {
   color: #000;
 }
 
-/* SECTIONS */
 section {
   max-width: 900px;
   margin: 70px auto;
@@ -79,7 +85,6 @@ h2 {
   padding-bottom: 10px;
 }
 
-/* MENU */
 .menu-item {
   display: flex;
   justify-content: space-between;
@@ -91,7 +96,6 @@ h2 {
   color: #c9a24d;
 }
 
-/* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -104,12 +108,6 @@ h2 {
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* CONTACT */
-.contact p {
-  line-height: 1.8;
-}
-
-/* FOOTER */
 footer {
   text-align: center;
   padding: 30px;
@@ -117,13 +115,12 @@ footer {
   color: #777;
 }
 
-/* ANIMATIONS AU DÉFILEMENT */
+/* Scroll animation */
 .fade-section {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
 }
-
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
@@ -134,70 +131,101 @@ footer {
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo Tokyo Table">
-  <h1>Tokyo Table</h1>
-  <p>Gastronomie Japonaise</p>
+  <img src="logo.png" alt="Tokyo Table Logo">
+
+  <h1 id="title">Tokyo Table</h1>
+  <p id="subtitle">Japanese Gourmet</p>
 
   <nav>
-    <a href="#menu">Menu</a>
-    <a href="#gallery">Galerie</a>
-    <a href="#contact">Contact</a>
+    <a href="#menu" id="navMenu">Menu</a>
+    <a href="#gallery" id="navGallery">Gallery</a>
+    <a href="#contact" id="navContact">Contact</a>
   </nav>
 
-  <a href="#" class="order-btn">COMMANDER</a>
+  <button class="lang-btn" onclick="toggleLanguage()">FR / EN</button><br>
+
+  <a href="#" class="order-btn" id="orderBtn">ORDER NOW</a>
 </header>
 
 <section id="menu" class="fade-section">
-  <h2>Menu</h2>
+  <h2 id="menuTitle">Menu</h2>
 
-  <div class="menu-item"><span>Edamame</span><span>6 $</span></div>
-  <div class="menu-item"><span>Raviolis Gyoza</span><span>9 $</span></div>
-  <div class="menu-item"><span>Poulet Épicé</span><span>14 $</span></div>
-  <div class="menu-item"><span>Steak Wagyu</span><span>48 $</span></div>
-  <div class="menu-item"><span>Ramen Tokyo</span><span>18 $</span></div>
-  <div class="menu-item"><span>Ramen Miso Épicé</span><span>19 $</span></div>
-  <div class="menu-item"><span>Bol de Poulet Teriyaki</span><span>17 $</span></div>
-  <div class="menu-item"><span>Plateau de Sushi au Saumon</span><span>20 $</span></div>
+  <div class="menu-item"><span id="i1">Edamame</span><span>$6</span></div>
+  <div class="menu-item"><span id="i2">Gyoza Dumplings</span><span>$9</span></div>
+  <div class="menu-item"><span id="i3">Chili Chicken</span><span>$14</span></div>
+  <div class="menu-item"><span id="i4">Wagyu Steak</span><span>$48</span></div>
+  <div class="menu-item"><span id="i5">Tokyo Ramen</span><span>$18</span></div>
+  <div class="menu-item"><span id="i6">Spicy Miso Ramen</span><span>$19</span></div>
+  <div class="menu-item"><span id="i7">Teriyaki Chicken Bowl</span><span>$17</span></div>
+  <div class="menu-item"><span id="i8">Salmon Sushi Plate</span><span>$20</span></div>
 </section>
 
 <section id="gallery" class="fade-section">
-  <h2>Plats Signature</h2>
+  <h2 id="galleryTitle">Signature Dishes</h2>
   <div class="gallery">
     <img src="ramen.jpg" alt="Ramen">
-    <img src="wagyu.jpg" alt="Steak Wagyu">
+    <img src="wagyu.jpg" alt="Wagyu">
     <img src="sushi.jpg" alt="Sushi">
-    <img src="teriyaki.jpg" alt="Poulet Teriyaki">
+    <img src="teriyaki.jpg" alt="Teriyaki">
   </div>
 </section>
 
-<section id="contact" class="fade-section contact">
-  <h2>Contact</h2>
-  <p>
-    123 rue Tokyo, Toronto, ON<br>
-    Téléphone : (416) 555-1234<br>
-    Courriel : info@tokyotable.com<br>
-    Heures : Lun–Dim | 11 h – 22 h
+<section id="contact" class="fade-section">
+  <h2 id="contactTitle">Contact</h2>
+  <p id="contactText">
+    123 Tokyo Street, Toronto, ON<br>
+    Phone: (416) 555-1234<br>
+    Email: info@tokyotable.com<br>
+    Hours: Mon–Sun | 11AM – 10PM
   </p>
 </section>
 
 <footer>
-  © 2026 Tokyo Table — Gastronomie Japonaise
+  © 2026 Tokyo Table
 </footer>
 
 <script>
-const sections = document.querySelectorAll('.fade-section');
+let isFrench = false;
 
+function toggleLanguage() {
+  isFrench = !isFrench;
+
+  document.getElementById("subtitle").innerText =
+    isFrench ? "Gastronomie Japonaise" : "Japanese Gourmet";
+  document.getElementById("navGallery").innerText =
+    isFrench ? "Galerie" : "Gallery";
+  document.getElementById("navContact").innerText =
+    isFrench ? "Contact" : "Contact";
+  document.getElementById("orderBtn").innerText =
+    isFrench ? "COMMANDER" : "ORDER NOW";
+  document.getElementById("menuTitle").innerText =
+    isFrench ? "Menu" : "Menu";
+  document.getElementById("galleryTitle").innerText =
+    isFrench ? "Plats Signature" : "Signature Dishes";
+  document.getElementById("contactTitle").innerText =
+    isFrench ? "Contact" : "Contact";
+
+  document.getElementById("i2").innerText =
+    isFrench ? "Raviolis Gyoza" : "Gyoza Dumplings";
+  document.getElementById("i3").innerText =
+    isFrench ? "Poulet Épicé" : "Chili Chicken";
+  document.getElementById("i4").innerText =
+    isFrench ? "Steak Wagyu" : "Wagyu Steak";
+  document.getElementById("i6").innerText =
+    isFrench ? "Ramen Miso Épicé" : "Spicy Miso Ramen";
+  document.getElementById("i7").innerText =
+    isFrench ? "Bol de Poulet Teriyaki" : "Teriyaki Chicken Bowl";
+  document.getElementById("i8").innerText =
+    isFrench ? "Plateau de Sushi au Saumon" : "Salmon Sushi Plate";
+}
+
+const sections = document.querySelectorAll('.fade-section');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
-}, { threshold: 0.2 });
-
-sections.forEach(section => {
-  observer.observe(section);
 });
+sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
